@@ -57,4 +57,3 @@ shape=articles.shape[0]
 #resetting index of final result
 articles.index=np.arange(shape)
 print(articles)
-
