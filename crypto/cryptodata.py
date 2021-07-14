@@ -7,12 +7,11 @@ plt.style.use('seaborn-darkgrid')
 
 #module to fetch cryptocompare data and api key
 import sys   
-
 sys.path.append("..")
-from data_modules.FDMA_quantra import get_cryptocomapre_api
+from data_modules.FMDA_quantra import get_cryptocompare_api
 
 #get the api key from data_modules folder
-cryptocompare_API_key=get_cryptocomapre_api()
+cryptocompare_API_key=get_cryptocompare_api()
 #set api key in cryptocomapre object
 cryptocompare.cryptocompare._set_api_key_parameter(cryptocompare_API_key)
 print("API key is set")
@@ -33,3 +32,4 @@ currency = 'USD'
 limit_value = 2000
 exchange_name = 'CCCAGG'
 data_before_timestamp = datetime(2021, 6,5, 0, 0)
+#fetch the raw price data

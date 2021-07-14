@@ -133,11 +133,11 @@ def get_fundamental_data(asset_ticker):
             "Retained Earnings" : "Retained Earnings",
             "Long Term Debt" : "Long Term Debt"
         }
-
+     
     # Rename the columns in the balance_sheet_yfinance DataFrame
     balance_sheet_yfinance = \
         balance_sheet_yfinance.rename(columns=balance_sheet_mapping_dict)
-
+   
     # The final column list for the merged DataFrame
     balance_sheet_column_heads = [i[1] for i in balance_sheet_mapping_dict.items()]
 
@@ -176,21 +176,28 @@ def get_fundamental_data(asset_ticker):
     # Rename the columns in the cash_flow_yfinance DataFrame
     cash_flow_yfinance = \
         cash_flow_yfinance.rename(columns=cash_flow_mapping_dict)
-
+    
     # The final column list for the merged DataFrame
     cash_flow_column_heads = [i[1] for i in cash_flow_mapping_dict.items()]
-
+    
     # Trim the cash_flow_simfin to the final column list
     cash_flow_simfin = cash_flow_simfin[cash_flow_column_heads]
-
+ 
     # Trim the cash_flow_yfinance to the final column list
     cash_flow_yfinance = cash_flow_yfinance[cash_flow_column_heads]
-
+    
     # Sort the balance_sheet_yfinance to match the order as in the SimFin DataFrame
     cash_flow_yfinance = cash_flow_yfinance.sort_index(ascending=True)
 
+    #new code
+    cash_flow_column_heads=[i[1] for i in cash_flow_mapping_dict.items()]
+    
+    #new code ends here
+   
     # Join the two DataFrames
     cash_flow_data = cash_flow_simfin.append(cash_flow_yfinance)
 
     # Return the income statement, balance sheet and cashflow data
     return income_data, balance_sheet_data, cash_flow_data
+
+    

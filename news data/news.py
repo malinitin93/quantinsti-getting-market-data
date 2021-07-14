@@ -36,8 +36,8 @@ def newsfeed1(article_info,raw_dictionary):
 articles=pd.DataFrame()
 #each keyword will be searched seperately and results will be saved in a dataframe
 for steps in range(len(keywords)):
-    string=(keywords[steps])
-    googlenews.search(string)
+    string=(keywords[steps]) 
+    googlenews.search(string) 
 
     #fetch the results
     result=googlenews.results()
