@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn-darkgrid')
 
 #create ticker object for microsoft
-msft=yf.ticker('MSFT')
+msft=yf.Ticker('MSFT')
 
 #call the options on ticker object to get expiration dates
-msft.options
+msft.options()
 
 # Get options chain for specific expiration date
 option_chain=msft.option_chain(date=msft.options[0])
