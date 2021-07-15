@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn-darkgrid')
 
 #
-futures_data=yf.download("HE=F",start='2021-06-01',end='2021-06-24')
+futures_data=yf.download("HE=F",start="2021-06-01",end="2021-06-24")
 
 #plot the adjusted close price
-(futures_data['Adj Close']).plot(figsize=(8,6))
+futures_data['Adj Close'].plot(figsize=(8,6))
 
 #set the title and label for plot
 plt.title('Lean Hog Continuous Future Adjusted Close Price',fontsize=12)
