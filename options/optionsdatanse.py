@@ -20,7 +20,7 @@ nifty_options =get_history(
                             index=True,
                             expiry_date=date(2021,7,15),
                             option_type='CE',
-                            strike_price=15500
+                            strike_price=15800
                           )
 nifty_options.head()
 #

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn-darkgrid')
 
 #
-futures_data=yf.download("HE=F",start="2021-06-01",end="2021-06-24")
+futures_data=yf.download(tickers="MSFT=F",start="2021-06-01",end="2021-06-24" ,threads=True)
 
 #plot the adjusted close price
 futures_data['Adj Close'].plot(figsize=(8,6))
