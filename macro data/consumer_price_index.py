@@ -36,5 +36,3 @@ plt.xlabel('DATE',fontsize=12)
 plt.ylabel('Percent',fontsize=12)
 #Show the plot
 plt.show()
-
-#

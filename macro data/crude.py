@@ -14,17 +14,17 @@ macro_data=pd.DataFrame(index=['Value as of'+str(date.today())])
 #
 from fredapi import Fred
 fred=Fred(get_fred_api())
-
-#get the gold price
-gold_price=yf.download('GLD','2018-01-01')['Close']
+#get the US Brent Crude price
+#Series ID for US Brent Crude Price:POILBREUSDM
+us_brent_crude=fred.get_series('POILBREUSDM')
 #Store the last value in macro data
-macro_data['GLD Price']="{} USD".format(round(gold_price[-1],2))
-#plot the gold price
+macro_data['US Brent Crude']="{} USD Per Barrel".format(us_brent_crude[-1])
+
+#Plot the Crude Price
 plt.figure(figsize=(15,7))
-gold_price.plot(color="red")
-#set the title and axis label
-plt.title('Gold Price',fontsize=14)
-plt.xlabel('Year',fontsize=12)
-plt.ylabel('USD',fontsize=12)
+plt.title('US Brent Crude $ per Barrel',fontsize=14)
+plt.xlabel('Date',fontsize=12)
+plt.ylabel('USD Per Barrel',fontsize=12)
+plt.legend()
 #show the plot
 plt.show()
