@@ -62,8 +62,31 @@ plt.legend()
 #show the plot
 plt.show()
 
+#
+#
+#
+#consumer price index
+#Get the CPI
+#Series ID for CPI:CPIAUCSL
+cpi=fred.get_series('CPIAUCSL')
+#Store the last value in macro data
+macro_data['CPI']="{}%".format(round(cpi.pct_change(periods=12)[-1],4)*100)
+#plot the CPI
+plt.figure(figsize=(15,7))
+(cpi.pct_change(periods=12)*100).plot(color="brown")
+#set the title and axis label
+plt.title('CPI',fontsize=12)
+plt.xlabel('DATE',fontsize=12)
+plt.ylabel('Percent',fontsize=12)
+#Show the plot
+plt.show()
 
-
+#
+# Get the 3 month, 1 year and 10 year treasury rates
+# Series ID for Treasury Rates: DGS3MO, DGS1, DGS10
+treasury_3M=fred.get_series('DGS3MO')
+treasury_1Y=fred.get_series('DGS1')
+treasury_10Y=fred.get_series('DGS10')
 
 
 
