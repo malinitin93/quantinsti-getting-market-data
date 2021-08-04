@@ -11,14 +11,10 @@ sys.path.append("..")
 # edit fmda
 from data_modules.FMDA_quantra import get_fred_api
 macro_data=pd.DataFrame(index=['Value as of'+str(date.today())])
-
 #
 #
 from fredapi import Fred
 fred=Fred(get_fred_api())
-
-
-#
 #
 #
 #consumer price index
