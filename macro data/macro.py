@@ -87,6 +87,25 @@ plt.show()
 treasury_3M=fred.get_series('DGS3MO')
 treasury_1Y=fred.get_series('DGS1')
 treasury_10Y=fred.get_series('DGS10')
+# Store the last value in 'macro_data'
+macro_data['3 Month US Treasury'] = "{}%".format(treasury_3M[-1])
+macro_data['1 Year US Treasury'] ="{}%".format(treasury_1Y[-1])
+macro_data['10 Year US Treasury']="{}%".format(treasury_10Y[-1])
+#plot the treasury rates
+plt.figure(figsize=(15,7))
+treasury_3M.plot(label='3 Month',alpha=0.5)
+treasury_1Y.plot(label='1 Year',color='red',alpha=0.5)
+treasury_10Y.plot(label='10 Year',color='green',alpha=0.5)
+#set the title and axis label
+plt.title('US treasury Rate',fontsize=12)
+plt.xlabel('Date',fontsize=12)
+plt.ylabel('Percentage',fontsize=12)
+plt.legend()
+#show the plot
+plt.show()
 
+
+#get the unemployment rate
+# Series ID for Unemployment Rate: UNRATE
 
 
