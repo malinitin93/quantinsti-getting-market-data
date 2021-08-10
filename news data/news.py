@@ -6,7 +6,7 @@ googlenews=GoogleNews()
 
 #keywords
 keywords=['Infosys-Stock','Infosys Revenue','Infosys','Infy']
-googlenews.set_time_range('01/03/2021','01/06/2021')
+googlenews.set_time_range('01/03/2021','01/08/2021')
 
 #dataframe to store news article infomation
 article_info=pd.DataFrame(columns=['Date','Time','Title','Articles','Link'])
@@ -19,7 +19,7 @@ def newsfeed1(article_info,raw_dictionary):
             date=raw_dictionary[i]['datetime']
             date=pd.to_datetime(date)
             #fetch title, time and source of news articles
-            title=raw_dictionary[i]['title']
+            title=raw_dictionary[i]['title'] 
             time=raw_dictionary[i]['date']
             articles=raw_dictionary[i]['desc']
             link=raw_dictionary[i]['link']
@@ -31,13 +31,24 @@ def newsfeed1(article_info,raw_dictionary):
 
     return article_info
 #function ends
-
+#title=raw_dictionary[i]['title']
+#article_info=article_info.append({'Date':date,'Time':time,'Title':title,'Articles':articles,'Link'},ignore_index=True)
+#date=raw_dictionary[i]['datetime']
+#date=pd.to_datetime(date)
+#return article_info
+#link=raw_dictionary[i]['link']
+#articles=raw_dictionary[i]['desc']
+#time=raw_dictionary[i]['date']
+#title=raw_dictionary[i]['title']
+#date=pd.to_datetime(date)
+#
+#code ends
 #dataframe containing the news of all the keywords searched
 articles=pd.DataFrame()
 #each keyword will be searched seperately and results will be saved in a dataframe
 for steps in range(len(keywords)):
     string=(keywords[steps]) 
-    googlenews.search(string) 
+    googlenews.search(string)  
 
     #fetch the results
     result=googlenews.results()

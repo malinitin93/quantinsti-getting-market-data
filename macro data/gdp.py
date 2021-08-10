@@ -16,12 +16,13 @@ macro_data=pd.DataFrame(index=['Value as of'+str(date.today())])
 from fredapi import Fred
 fred=Fred(get_fred_api())
 #get US GDP
-#Series ID for US GDP:GDp
+#Series ID for US GDP:GDP
 gdp=fred.get_series('GDP')
 #Data is fetched into Billions USD, divide by 1000 to convert into Trillions
 gdp=gdp/1000
 #Store the last value in macro data
 macro_data['US GDP']="{} trillions USD".format(gdp[-1])
+
 
 #Plot the GDP
 plt.figure(figsize=(15,7))
