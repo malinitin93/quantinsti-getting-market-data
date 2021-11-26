@@ -4,7 +4,7 @@ import numpy as np
 
 #import get history function from nsepy module
 from nsepy import get_history
-
+#
 #for manuplatinf date
 from datetime import date
 
@@ -24,7 +24,6 @@ nifty_options =get_history(
                           )
 nifty_options.head()
 #
-#
 # fig 1
 fig=plt.figure(figsize=(8,5))
 #plot close prices
@@ -34,6 +33,7 @@ ax.set_title('15500 Strike NIFTY Call Close Price',fontsize=14)
 ax.set_ylabel('Close Price',fontsize=12)
 ax.set_xlabel('Date',fontsize=12)
 plt.show()
+# 
 #fig 2
 #
 #

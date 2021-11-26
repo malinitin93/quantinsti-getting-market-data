@@ -14,13 +14,13 @@ article_info=pd.DataFrame(columns=['Date','Time','Title','Articles','Link'])
 #function starts
 def newsfeed1(article_info,raw_dictionary):
     for i in range(len(raw_dictionary)-1):
-        if raw_dictionary is not None:
+        if raw_dictionary is not None: 
             #fetch date and time and convert it into datetime format
             date=raw_dictionary[i]['datetime']
-            date=pd.to_datetime(date)
+            date=pd.to_datetime(date)      
             #fetch title, time and source of news articles
-            title=raw_dictionary[i]['title'] 
-            time=raw_dictionary[i]['date']
+            title=raw_dictionary[i]['title']  
+            time=raw_dictionary[i]['date']  
             articles=raw_dictionary[i]['desc']
             link=raw_dictionary[i]['link']
             #append all above information in single dataframe
@@ -28,21 +28,9 @@ def newsfeed1(article_info,raw_dictionary):
             'Articles':articles,'Link':link},ignore_index=True)
         else:
             break
-
     return article_info
 #function ends
-#title=raw_dictionary[i]['title']
-#article_info=article_info.append({'Date':date,'Time':time,'Title':title,'Articles':articles,'Link'},ignore_index=True)
-#date=raw_dictionary[i]['datetime']
-#date=pd.to_datetime(date)
-#return article_info
-#link=raw_dictionary[i]['link']
-#articles=raw_dictionary[i]['desc']
-#time=raw_dictionary[i]['date']
-#title=raw_dictionary[i]['title']
-#date=pd.to_datetime(date)
-#
-#code ends
+
 #dataframe containing the news of all the keywords searched
 articles=pd.DataFrame()
 #each keyword will be searched seperately and results will be saved in a dataframe
@@ -53,12 +41,14 @@ for steps in range(len(keywords)):
     #fetch the results
     result=googlenews.results()
     #number of pages
+#articles=pd.DataFrame()   
+# 
     total_pages=1
 
     for steps in range(total_pages):
         googlenews.get_page(steps)
         feed=newsfeed1(article_info, result)
-    
+
     articles=articles.append(feed)
     #clear off the search results of previous keyword to avoid duplication
     googlenews.clear()

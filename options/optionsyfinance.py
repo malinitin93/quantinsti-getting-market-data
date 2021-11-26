@@ -25,7 +25,6 @@ plt.ylabel('Last Price',fontSize=12)
 plt.title('Microsoft call options for Different Strike Price',fontSize=14)
 plt.show()
 
-
 ##
 ##
 ##
